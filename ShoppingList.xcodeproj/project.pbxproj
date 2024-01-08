@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ECE03A562B4C1DB8006C9C32 /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE03A552B4C1DB8006C9C32 /* TripTableViewController.swift */; };
+		ECE03A582B4C1DD3006C9C32 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE03A572B4C1DD3006C9C32 /* TripTableViewCell.swift */; };
 		ECF11C182B4C1083000B6936 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF11C172B4C1083000B6936 /* AppDelegate.swift */; };
 		ECF11C1A2B4C1083000B6936 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF11C192B4C1083000B6936 /* SceneDelegate.swift */; };
 		ECF11C1C2B4C1083000B6936 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF11C1B2B4C1083000B6936 /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ECE03A552B4C1DB8006C9C32 /* TripTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewController.swift; sourceTree = "<group>"; };
+		ECE03A572B4C1DD3006C9C32 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		ECF11C142B4C1083000B6936 /* ShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF11C172B4C1083000B6936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECF11C192B4C1083000B6936 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 				ECF11C192B4C1083000B6936 /* SceneDelegate.swift */,
 				ECF11C1B2B4C1083000B6936 /* ViewController.swift */,
 				ECF11C1D2B4C1083000B6936 /* Main.storyboard */,
+				ECE03A572B4C1DD3006C9C32 /* TripTableViewCell.swift */,
+				ECE03A552B4C1DB8006C9C32 /* TripTableViewController.swift */,
 				ECF11C2B2B4C1105000B6936 /* ShoppingTableViewCell.swift */,
 				ECF11C2D2B4C111E000B6936 /* ShoppingTableViewController.swift */,
 				ECF11C202B4C1084000B6936 /* Assets.xcassets */,
@@ -145,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECF11C1C2B4C1083000B6936 /* ViewController.swift in Sources */,
+				ECE03A582B4C1DD3006C9C32 /* TripTableViewCell.swift in Sources */,
 				ECF11C2C2B4C1105000B6936 /* ShoppingTableViewCell.swift in Sources */,
+				ECE03A562B4C1DB8006C9C32 /* TripTableViewController.swift in Sources */,
 				ECF11C182B4C1083000B6936 /* AppDelegate.swift in Sources */,
 				ECF11C2E2B4C111E000B6936 /* ShoppingTableViewController.swift in Sources */,
 				ECF11C1A2B4C1083000B6936 /* SceneDelegate.swift in Sources */,
