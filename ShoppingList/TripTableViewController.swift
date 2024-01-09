@@ -69,6 +69,7 @@ class TripTableViewController: UITableViewController {
         cell.subTitleLabel.font = .systemFont(ofSize: 16)
         cell.subTitleLabel.textColor = .lightGray
         
+        // 굳이 모든 cell에 dateformatter를 메모리에 줄 필요가 없음
         cell.dateLabel.text = makeStringDate(idx)
         cell.dateLabel.textAlignment = .right
         cell.dateLabel.font = .systemFont(ofSize: 16)
