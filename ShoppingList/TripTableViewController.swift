@@ -80,10 +80,12 @@ class TripTableViewController: UITableViewController {
     func makeStringDate(_ idx: Int) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyMMdd"
+        
         if let date = dateFormatter.date(from: magazine[idx].date) {
             dateFormatter.dateFormat = "yy년 MM월 dd일"
             return dateFormatter.string(from: date)
         }
+        
         return "없음"
     }
 }
