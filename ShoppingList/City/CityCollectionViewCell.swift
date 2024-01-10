@@ -17,7 +17,7 @@ class CityCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imageView.layer.cornerRadius = 20
+        // imageView.layer.cornerRadius = imageView.frame.width / 2
         imageView.contentMode = .scaleAspectFill
         
         nameLabel.textColor = .black
