@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 struct List {
     var isChecked: Bool = false
     var item: String
@@ -15,9 +16,7 @@ struct List {
 class ShoppingTableViewController: UITableViewController {
     
     @IBOutlet var titleLabel: UILabel!
-    
     @IBOutlet var itemTextField: UITextField!
-    
     @IBOutlet var addButton: UIButton!
     
     var itemList: [List] = [List(item: "그립톡"),
@@ -27,21 +26,8 @@ class ShoppingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = "쇼핑"
-        titleLabel.font = .boldSystemFont(ofSize: 20)
-        titleLabel.textAlignment = .center
-        
-        itemTextField.placeholder = "무엇을 구매하실 건가요?"
-        itemTextField.borderStyle = .roundedRect
-        itemTextField.backgroundColor = .systemGray6
-        
-        addButton.setTitle("추가", for: .normal)
-        addButton.tintColor = .black
-        addButton.backgroundColor = .systemGray5
-        addButton.titleLabel?.font = .systemFont(ofSize: 16)
-        addButton.layer.cornerRadius = 10
+        designHeader();
     }
-    
     
     @IBAction func addButtonClicked(_ sender: UIButton) {
         guard let text = itemTextField.text else {
@@ -71,25 +57,12 @@ class ShoppingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingTableViewCell", for: indexPath) as! ShoppingTableViewCell
-        var image: String
+        let item = itemList[indexPath.row]
         
-        cell.backgroundColor = .systemGray6
+        cell.designCell(item, tag: indexPath.row)
         
-        cell.checkBoxButton.tag = indexPath.row
-        cell.checkBoxButton.tintColor = .black
         cell.checkBoxButton.addTarget(self, action: #selector(checkBoxButtonClicked), for: .touchUpInside)
-        image = itemList[indexPath.row].isChecked ? "checkmark.square.fill" : "checkmark.square"
-        cell.checkBoxButton.setImage(UIImage(systemName: image), for: .normal)
-        
-        cell.itemLabel.text = itemList[indexPath.row].item
-        cell.itemLabel.textColor = .black
-        cell.itemLabel.font = .systemFont(ofSize: 16)
-        
-        cell.starButton.tag = indexPath.row
-        cell.starButton.tintColor = .black
         cell.starButton.addTarget(self, action: #selector(starButtonClicked), for: .touchUpInside)
-        image = itemList[indexPath.row].isStared ? "star.fill" : "star"
-        cell.starButton.setImage(UIImage(systemName: image), for: .normal)
         
         return cell
     }
@@ -106,5 +79,21 @@ class ShoppingTableViewController: UITableViewController {
     @objc func starButtonClicked(_ sender: UIButton) {
         itemList[sender.tag].isStared.toggle()
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)
+    }
+    
+    func designHeader() {
+        titleLabel.text = "쇼핑"
+        titleLabel.font = .boldSystemFont(ofSize: 20)
+        titleLabel.textAlignment = .center
+        
+        itemTextField.placeholder = "무엇을 구매하실 건가요?"
+        itemTextField.borderStyle = .roundedRect
+        itemTextField.backgroundColor = .systemGray6
+        
+        addButton.setTitle("추가", for: .normal)
+        addButton.tintColor = .black
+        addButton.backgroundColor = .systemGray5
+        addButton.titleLabel?.font = .systemFont(ofSize: 16)
+        addButton.layer.cornerRadius = 10
     }
 }
