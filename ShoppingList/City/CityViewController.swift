@@ -8,18 +8,12 @@
 import UIKit
 
 class CityViewController: UIViewController {
-    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var cityCollectionView: UICollectionView!
     
     var segmentIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        titleLabel.text = "인기 도시"
-        titleLabel.font = .boldSystemFont(ofSize: 20)
-        titleLabel.textAlignment = .center
-        
         setXIB()
         cityCollectionView.dataSource = self
         cityCollectionView.delegate = self

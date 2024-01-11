@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I2S-4O-YDW">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--City View Controller-->
+        <scene sceneID="PHM-rm-zcH">
+            <objects>
+                <viewController id="I2S-4O-YDW" customClass="CityViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZYc-sQ-WJL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-ak-Qo0">
+                                <rect key="frame" x="24" y="83" width="345" height="32"/>
+                                <segments>
+                                    <segment title="모두"/>
+                                    <segment title="국내"/>
+                                    <segment title="해외"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="I2S-4O-YDW" eventType="valueChanged" id="wrS-tB-7dw"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y7b-Xl-Yt8">
+                                <rect key="frame" x="0.0" y="114" width="393" height="704"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="izE-Tz-gyI">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sJT-ry-R7v">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ohi-aY-xAT">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WUZ-he-pHF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y7b-Xl-Yt8" firstAttribute="leading" secondItem="WUZ-he-pHF" secondAttribute="leading" id="4Ri-Ew-yIA"/>
+                            <constraint firstItem="3jc-ak-Qo0" firstAttribute="top" secondItem="WUZ-he-pHF" secondAttribute="top" constant="24" id="NId-cE-xfc"/>
+                            <constraint firstItem="WUZ-he-pHF" firstAttribute="trailing" secondItem="3jc-ak-Qo0" secondAttribute="trailing" constant="24" id="TXT-nT-fDa"/>
+                            <constraint firstItem="WUZ-he-pHF" firstAttribute="trailing" secondItem="Y7b-Xl-Yt8" secondAttribute="trailing" id="X7N-LX-Oil"/>
+                            <constraint firstItem="3jc-ak-Qo0" firstAttribute="leading" secondItem="WUZ-he-pHF" secondAttribute="leading" constant="24" id="kVx-dV-g4Q"/>
+                            <constraint firstItem="3jc-ak-Qo0" firstAttribute="centerX" secondItem="ZYc-sQ-WJL" secondAttribute="centerX" id="m7b-yy-tEV"/>
+                            <constraint firstItem="Y7b-Xl-Yt8" firstAttribute="top" secondItem="3jc-ak-Qo0" secondAttribute="bottom" id="vLS-pp-4AB"/>
+                            <constraint firstItem="WUZ-he-pHF" firstAttribute="bottom" secondItem="Y7b-Xl-Yt8" secondAttribute="bottom" id="xVs-XR-0ij"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cityCollectionView" destination="Y7b-Xl-Yt8" id="7sS-5d-qpn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tpf-LZ-CUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1102" y="258"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

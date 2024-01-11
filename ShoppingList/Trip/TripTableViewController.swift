@@ -8,16 +8,11 @@
 import UIKit
 
 class TripTableViewController: UITableViewController {
-    @IBOutlet var mainTitleLabel: UILabel!
 
     let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mainTitleLabel.text = "SeSAC TRAVEL"
-        mainTitleLabel.textAlignment = .center
-        mainTitleLabel.font = .boldSystemFont(ofSize: 20)
         
         tableView.rowHeight = 500
     }

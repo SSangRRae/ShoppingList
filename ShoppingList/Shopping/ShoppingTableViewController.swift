@@ -15,7 +15,6 @@ struct List {
 
 class ShoppingTableViewController: UITableViewController {
     
-    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var itemTextField: UITextField!
     @IBOutlet var addButton: UIButton!
     
@@ -82,10 +81,6 @@ class ShoppingTableViewController: UITableViewController {
     }
     
     func designHeader() {
-        titleLabel.text = "쇼핑"
-        titleLabel.font = .boldSystemFont(ofSize: 20)
-        titleLabel.textAlignment = .center
-        
         itemTextField.placeholder = "무엇을 구매하실 건가요?"
         itemTextField.borderStyle = .roundedRect
         itemTextField.backgroundColor = .systemGray6
