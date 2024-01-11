@@ -14,6 +14,9 @@ class CityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "인기 도시"
+        
         setXIB()
         cityCollectionView.dataSource = self
         cityCollectionView.delegate = self
@@ -68,5 +71,12 @@ extension CityViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "CityDetail", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "CityDetailViewController") as! CityDetailViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
