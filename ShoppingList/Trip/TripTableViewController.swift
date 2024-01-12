@@ -13,7 +13,7 @@ class TripTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "SeSAC TRAVEL"
         tableView.rowHeight = 500
     }
     

@@ -81,6 +81,8 @@ class ShoppingTableViewController: UITableViewController {
     }
     
     func designHeader() {
+        navigationItem.title = "쇼핑"
+        
         itemTextField.placeholder = "무엇을 구매하실 건가요?"
         itemTextField.borderStyle = .roundedRect
         itemTextField.backgroundColor = .systemGray6
