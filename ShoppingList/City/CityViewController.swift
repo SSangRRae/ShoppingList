@@ -9,17 +9,29 @@ import UIKit
 
 class CityViewController: UIViewController {
     @IBOutlet var cityCollectionView: UICollectionView!
+    @IBOutlet var segment: UISegmentedControl!
     
     var segmentIndex = 0
+    enum Category: Int, CaseIterable {
+        case all
+        case domestic
+        case foreign
+        
+        var title: String {
+            switch self {
+            case .all: "모두"
+            case .domestic: "국내"
+            case .foreign: "해외"
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "인기 도시"
-        
-        setXIB()
-        cityCollectionView.dataSource = self
-        cityCollectionView.delegate = self
+        setSegmented()
+        configureCell()
         setCollectionViewLayout()
         
         divideDomestic()
@@ -30,7 +42,18 @@ class CityViewController: UIViewController {
         cityCollectionView.reloadData()
     }
     
-    func setXIB() {
+    func divideDomestic() {
+        for c in city[0] {
+            c.domestic_travel ? city[1].append(c) : city[2].append(c)
+        }
+    }
+}
+
+extension CityViewController {
+    func configureCell() {
+        cityCollectionView.dataSource = self
+        cityCollectionView.delegate = self
+        
         let xib = UINib(nibName: "CityCollectionViewCell", bundle: nil)
         cityCollectionView.register(xib, forCellWithReuseIdentifier: "CityCollectionViewCell")
     }
@@ -49,9 +72,9 @@ class CityViewController: UIViewController {
         cityCollectionView.collectionViewLayout = layout
     }
     
-    func divideDomestic() {
-        for c in city[0] {
-            c.domestic_travel ? city[1].append(c) : city[2].append(c)
+    func setSegmented() {
+        for category in Category.allCases {
+            segment.setTitle(category.title, forSegmentAt: category.rawValue)
         }
     }
 }

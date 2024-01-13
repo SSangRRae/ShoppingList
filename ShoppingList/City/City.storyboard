@@ -20,9 +20,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-ak-Qo0">
                                 <rect key="frame" x="24" y="83" width="345" height="32"/>
                                 <segments>
-                                    <segment title="모두"/>
-                                    <segment title="국내"/>
-                                    <segment title="해외"/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                    <segment title=""/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControlChanged:" destination="I2S-4O-YDW" eventType="valueChanged" id="wrS-tB-7dw"/>
@@ -64,6 +64,7 @@
                     </view>
                     <connections>
                         <outlet property="cityCollectionView" destination="Y7b-Xl-Yt8" id="7sS-5d-qpn"/>
+                        <outlet property="segment" destination="3jc-ak-Qo0" id="yPi-sT-wxV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpf-LZ-CUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
