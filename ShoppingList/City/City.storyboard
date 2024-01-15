@@ -17,19 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-ak-Qo0">
-                                <rect key="frame" x="24" y="83" width="345" height="32"/>
-                                <segments>
-                                    <segment title=""/>
-                                    <segment title=""/>
-                                    <segment title=""/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentedControlChanged:" destination="I2S-4O-YDW" eventType="valueChanged" id="wrS-tB-7dw"/>
-                                </connections>
-                            </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y7b-Xl-Yt8">
-                                <rect key="frame" x="0.0" y="114" width="393" height="704"/>
+                                <rect key="frame" x="0.0" y="146" width="393" height="672"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="izE-Tz-gyI">
                                     <size key="itemSize" width="128" height="128"/>
@@ -48,28 +37,49 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-Vs-WiO">
+                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="I2S-4O-YDW" id="wkr-MX-zEk"/>
+                                </connections>
+                            </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3jc-ak-Qo0">
+                                <rect key="frame" x="24" y="115" width="345" height="32"/>
+                                <segments>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="I2S-4O-YDW" eventType="valueChanged" id="wrS-tB-7dw"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WUZ-he-pHF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Y7b-Xl-Yt8" firstAttribute="leading" secondItem="WUZ-he-pHF" secondAttribute="leading" id="4Ri-Ew-yIA"/>
-                            <constraint firstItem="3jc-ak-Qo0" firstAttribute="top" secondItem="WUZ-he-pHF" secondAttribute="top" constant="24" id="NId-cE-xfc"/>
-                            <constraint firstItem="WUZ-he-pHF" firstAttribute="trailing" secondItem="3jc-ak-Qo0" secondAttribute="trailing" constant="24" id="TXT-nT-fDa"/>
-                            <constraint firstItem="WUZ-he-pHF" firstAttribute="trailing" secondItem="Y7b-Xl-Yt8" secondAttribute="trailing" id="X7N-LX-Oil"/>
-                            <constraint firstItem="3jc-ak-Qo0" firstAttribute="leading" secondItem="WUZ-he-pHF" secondAttribute="leading" constant="24" id="kVx-dV-g4Q"/>
-                            <constraint firstItem="3jc-ak-Qo0" firstAttribute="centerX" secondItem="ZYc-sQ-WJL" secondAttribute="centerX" id="m7b-yy-tEV"/>
-                            <constraint firstItem="Y7b-Xl-Yt8" firstAttribute="top" secondItem="3jc-ak-Qo0" secondAttribute="bottom" id="vLS-pp-4AB"/>
-                            <constraint firstItem="WUZ-he-pHF" firstAttribute="bottom" secondItem="Y7b-Xl-Yt8" secondAttribute="bottom" id="xVs-XR-0ij"/>
+                            <constraint firstItem="3jc-ak-Qo0" firstAttribute="top" secondItem="f1z-Vs-WiO" secondAttribute="bottom" id="2XJ-2J-S4f"/>
+                            <constraint firstItem="f1z-Vs-WiO" firstAttribute="leading" secondItem="WUZ-he-pHF" secondAttribute="leading" id="3J3-wo-kjx"/>
+                            <constraint firstItem="Y7b-Xl-Yt8" firstAttribute="leading" secondItem="WUZ-he-pHF" secondAttribute="leading" id="Bd9-U1-HcL"/>
+                            <constraint firstItem="f1z-Vs-WiO" firstAttribute="trailing" secondItem="WUZ-he-pHF" secondAttribute="trailing" id="Btc-Eh-3mq"/>
+                            <constraint firstItem="WUZ-he-pHF" firstAttribute="trailing" secondItem="3jc-ak-Qo0" secondAttribute="trailing" constant="24" id="HPU-Od-t31"/>
+                            <constraint firstItem="f1z-Vs-WiO" firstAttribute="top" secondItem="WUZ-he-pHF" secondAttribute="top" id="Hck-XC-UlH"/>
+                            <constraint firstItem="Y7b-Xl-Yt8" firstAttribute="bottom" secondItem="WUZ-he-pHF" secondAttribute="bottom" id="Rag-iN-PP4"/>
+                            <constraint firstItem="Y7b-Xl-Yt8" firstAttribute="top" secondItem="3jc-ak-Qo0" secondAttribute="bottom" id="boT-ZT-1iA"/>
+                            <constraint firstItem="Y7b-Xl-Yt8" firstAttribute="trailing" secondItem="WUZ-he-pHF" secondAttribute="trailing" id="ekg-oW-5gN"/>
+                            <constraint firstItem="3jc-ak-Qo0" firstAttribute="leading" secondItem="WUZ-he-pHF" secondAttribute="leading" constant="24" id="lOf-XC-j8j"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cityCollectionView" destination="Y7b-Xl-Yt8" id="7sS-5d-qpn"/>
+                        <outlet property="searchBar" destination="f1z-Vs-WiO" id="gUG-7X-ANp"/>
                         <outlet property="segment" destination="3jc-ak-Qo0" id="yPi-sT-wxV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpf-LZ-CUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1102" y="258"/>
+            <point key="canvasLocation" x="1101.5267175572519" y="257.04225352112678"/>
         </scene>
     </scenes>
     <resources>

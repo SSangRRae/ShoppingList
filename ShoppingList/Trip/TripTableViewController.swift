@@ -8,36 +8,34 @@
 import UIKit
 
 class TripTableViewController: UITableViewController {
-
-    let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "SeSAC TRAVEL"
         tableView.rowHeight = 500
     }
-    
+}
+
+extension TripTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return magazine.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TripTableViewCell", for: indexPath) as! TripTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TripTableViewCell.identifier, for: indexPath) as! TripTableViewCell
         let item = magazine[indexPath.row]
         
         cell.designCell(item)
         
-        cell.dateLabel.text = makeStringDate(item)
-        
         return cell
     }
     
-    func makeStringDate(_ item: Magazine) -> String {
-        dateFormatter.dateFormat = "yyMMdd"
-        guard let date = dateFormatter.date(from: item.date) else {
-            return "Fail: Formatting Date"
-        }
-        dateFormatter.dateFormat = "yy년 MM월 dd일"
-        return dateFormatter.string(from: date)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "TripWebView", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: TripWebViewController.identifier) as! TripWebViewController
+        
+        vc.link = magazine[indexPath.row].link
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

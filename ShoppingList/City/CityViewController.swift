@@ -7,22 +7,37 @@
 
 import UIKit
 
-class CityViewController: UIViewController {
-    @IBOutlet var cityCollectionView: UICollectionView!
-    @IBOutlet var segment: UISegmentedControl!
+enum Category: Int, CaseIterable {
+    case all
+    case domestic
+    case foreign
     
-    var segmentIndex = 0
-    enum Category: Int, CaseIterable {
-        case all
-        case domestic
-        case foreign
-        
-        var title: String {
-            switch self {
-            case .all: "모두"
-            case .domestic: "국내"
-            case .foreign: "해외"
-            }
+    var title: String {
+        switch self {
+        case .all: "모두"
+        case .domestic: "국내"
+        case .foreign: "해외"
+        }
+    }
+    
+    var isDomestic: Bool {
+        switch self {
+        case .all: true
+        case .domestic: true
+        case .foreign: false
+        }
+    }
+}
+
+class CityViewController: UIViewController {
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var segment: UISegmentedControl!
+    @IBOutlet var cityCollectionView: UICollectionView!
+    
+    let originalList = city
+    var list: [City] = city {
+        didSet {
+            cityCollectionView.reloadData()
         }
     }
     
@@ -30,26 +45,82 @@ class CityViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "인기 도시"
+        setSearchBar()
         setSegmented()
         configureCell()
         setCollectionViewLayout()
-        
-        divideDomestic()
     }
     
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
-        segmentIndex = sender.selectedSegmentIndex
-        cityCollectionView.reloadData()
-    }
-    
-    func divideDomestic() {
-        for c in city[0] {
-            c.domestic_travel ? city[1].append(c) : city[2].append(c)
+        if sender.selectedSegmentIndex == Category.all.rawValue {
+            list = originalList
+        } else {
+            var filteredData: [City] = []
+            for c in originalList {
+                if c.domestic_travel == Category.allCases[sender.selectedSegmentIndex].isDomestic {
+                    filteredData.append(c)
+                }
+            }
+            list = filteredData
         }
     }
 }
 
+extension CityViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var filteredData: [City] = []
+        
+        guard let text = searchBar.text?.replacing(" ", with: "") else {
+            return
+        }
+        let upperText = text.uppercased()
+        
+        if upperText == "" {
+            list = originalList
+        } else {
+            for city in list {
+                if city.city_name.contains(text) || city.city_english_name.uppercased().contains(upperText) || city.city_explain.contains(text) {
+                    filteredData.append(city)
+                }
+            }
+            list = filteredData
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        var filteredData: [City] = []
+        
+        guard let text = searchBar.text?.replacing(" ", with: "") else {
+            return
+        }
+        
+        let upperText = text.uppercased()
+        
+        if upperText == "" {
+            list = originalList
+        } else {
+            for city in list {
+                if city.city_name.contains(text) || city.city_english_name.uppercased().contains(upperText) || city.city_explain.contains(text) {
+                    filteredData.append(city)
+                }
+            }
+            list = filteredData
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        searchBar.text = ""
+        list = originalList
+    }
+}
+
 extension CityViewController {
+    func setSearchBar() {
+        searchBar.delegate = self
+        searchBar.showsCancelButton = true
+    }
+    
     func configureCell() {
         cityCollectionView.dataSource = self
         cityCollectionView.delegate = self
@@ -81,13 +152,13 @@ extension CityViewController {
 
 extension CityViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return city[segmentIndex].count
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = cityCollectionView.dequeueReusableCell(withReuseIdentifier: "CityCollectionViewCell", for: indexPath) as! CityCollectionViewCell
         
-        cell.designCell(city[segmentIndex][indexPath.item])
+        cell.designCell(list[indexPath.item])
         
         DispatchQueue.main.async {
             cell.imageView.layer.cornerRadius = cell.imageView.frame.width / 2

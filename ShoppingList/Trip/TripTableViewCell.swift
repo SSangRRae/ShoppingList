@@ -8,6 +8,20 @@
 import UIKit
 import Kingfisher
 
+struct Date {
+    let dateFormatter = DateFormatter()
+    var stringDate: String
+    
+    var result: String {
+        dateFormatter.dateFormat = "yyMMdd"
+        if let date = dateFormatter.date(from: stringDate) {
+            dateFormatter.dateFormat = "yy년 MM월 dd일"
+            return dateFormatter.string(from: date)
+        }
+        return "Fail"
+    }
+}
+
 class TripTableViewCell: UITableViewCell {
     
     @IBOutlet var photoImageView: UIImageView!
@@ -39,5 +53,6 @@ class TripTableViewCell: UITableViewCell {
         photoImageView.kf.setImage(with: url)
         titleLabel.text = item.title
         subTitleLabel.text = item.subTitle
+        dateLabel.text = Date(stringDate: item.date).result
     }
 }

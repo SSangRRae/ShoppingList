@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC2757932B553AB60078C1AA /* TripWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2757922B553AB60078C1AA /* TripWebView.storyboard */; };
+		EC2757952B553AE50078C1AA /* TripWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2757942B553AE50078C1AA /* TripWebViewController.swift */; };
+		EC2757982B553F220078C1AA /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2757972B553F220078C1AA /* Protocol.swift */; };
 		ECB718EC2B4FD064007A9BD2 /* Shopping.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB718EB2B4FD064007A9BD2 /* Shopping.storyboard */; };
 		ECB718EE2B4FD087007A9BD2 /* Trip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB718ED2B4FD087007A9BD2 /* Trip.storyboard */; };
 		ECB718F02B4FD0E1007A9BD2 /* City.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECB718EF2B4FD0E1007A9BD2 /* City.storyboard */; };
@@ -40,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC2757922B553AB60078C1AA /* TripWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TripWebView.storyboard; sourceTree = "<group>"; };
+		EC2757942B553AE50078C1AA /* TripWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripWebViewController.swift; sourceTree = "<group>"; };
+		EC2757972B553F220078C1AA /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		ECB718EB2B4FD064007A9BD2 /* Shopping.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shopping.storyboard; sourceTree = "<group>"; };
 		ECB718ED2B4FD087007A9BD2 /* Trip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trip.storyboard; sourceTree = "<group>"; };
 		ECB718EF2B4FD0E1007A9BD2 /* City.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = City.storyboard; sourceTree = "<group>"; };
@@ -85,6 +91,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC2757912B553A8B0078C1AA /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				EC2757922B553AB60078C1AA /* TripWebView.storyboard */,
+				EC2757942B553AE50078C1AA /* TripWebViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		EC2757962B553F0A0078C1AA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EC2757972B553F220078C1AA /* Protocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		ECB718F12B4FF600007A9BD2 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +143,7 @@
 		ECE9A6AA2B4EB4E800C2212E /* Trip */ = {
 			isa = PBXGroup;
 			children = (
+				EC2757912B553A8B0078C1AA /* WebView */,
 				ECE03A572B4C1DD3006C9C32 /* TripTableViewCell.swift */,
 				ECE03A552B4C1DB8006C9C32 /* TripTableViewController.swift */,
 				ECE9A6AE2B4EBA3500C2212E /* TripInfo.swift */,
@@ -172,6 +196,7 @@
 		ECF11C162B4C1083000B6936 /* ShoppingList */ = {
 			isa = PBXGroup;
 			children = (
+				EC2757962B553F0A0078C1AA /* Protocols */,
 				ECE9A6AB2B4EB4F800C2212E /* Shopping */,
 				ECE9A6AA2B4EB4E800C2212E /* Trip */,
 				ECEF696B2B4D51C400CA8970 /* City */,
@@ -261,6 +286,7 @@
 				ECB718EC2B4FD064007A9BD2 /* Shopping.storyboard in Resources */,
 				ECB719072B501DF0007A9BD2 /* AD.storyboard in Resources */,
 				ECB718F92B4FF837007A9BD2 /* CityTableViewCell.xib in Resources */,
+				EC2757932B553AB60078C1AA /* TripWebView.storyboard in Resources */,
 				ECEF69712B4D53A800CA8970 /* CityCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +306,8 @@
 				ECB719092B501E89007A9BD2 /* ADViewController.swift in Sources */,
 				ECF11C2C2B4C1105000B6936 /* ShoppingTableViewCell.swift in Sources */,
 				ECB7190B2B501EB0007A9BD2 /* LandmarkViewController.swift in Sources */,
+				EC2757952B553AE50078C1AA /* TripWebViewController.swift in Sources */,
+				EC2757982B553F220078C1AA /* Protocol.swift in Sources */,
 				ECEF696D2B4D51DF00CA8970 /* CityViewController.swift in Sources */,
 				ECE9A6AF2B4EBA3500C2212E /* TripInfo.swift in Sources */,
 				ECE03A562B4C1DB8006C9C32 /* TripTableViewController.swift in Sources */,
